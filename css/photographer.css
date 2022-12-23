@@ -2,12 +2,53 @@
     display: none;
 }
 
+/* EN-TÊTE */
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
 }
 
+.media-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: normal;
+    margin: 50px 100px;
+}
+
+.img-media {
+    height: 300px;
+    width: 350px;
+    border-radius: 2%;
+    object-fit: cover;
+}
+
+.video-media { 
+    height: 300px;
+    width: 350px;
+    border-radius: 2%;
+    object-fit: cover;
+}
+
+.media-infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+    text-align: center;
+    color: #901C1C;
+}
+
+.img-media-title, .video-media-title {
+    font-weight: 200;
+}
+
+.img-media-likes, .video-media-likes {
+    font-weight: bold;
+}
 .photographer_header {
     margin-top: 40px;
     padding: 50px 40px 0 40px;
@@ -51,6 +92,19 @@
     width: 200px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+/* ENCART */
+.encart-photographer {
+    color: black;
+    background-color: #db8876;
+    width: 340px;
+    border-radius: 5px;
+    position: fixed;
+    right: 2%;
+    bottom: 0%;
+    top: 95%;
+    padding: 0px 20px;
 }
 
 /* FORM */

@@ -1,3 +1,4 @@
+// Ajout des fiches photographes en page d'accueil
 function photographerFactory(data) {
 
     const { portrait, name, city, country, tagline, price, id } = data;
@@ -44,12 +45,12 @@ function photographerFactory(data) {
         article.appendChild(description);
         article.appendChild(photographersPrice);
 
-        return (article);
+        return article;
     }
     return { picture, name, city, country, tagline, price, id, getUserCardDOM }
 }
 
-// Page photographe
+// Affichage en-tête page photographe
 function profilsFactory(data) {
 
     const { portrait, name, city, country, tagline, price, id } = data;
@@ -92,7 +93,7 @@ function profilsFactory(data) {
         article.appendChild(contactButton);
         article.appendChild(photographerImg);
 
-        return (article);
+        return article;
     }
     return { picture, name, city, country, tagline, price, id, getProfilCardDOM }
 }
