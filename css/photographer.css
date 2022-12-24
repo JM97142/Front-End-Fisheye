@@ -96,14 +96,14 @@
 
 /* ENCART */
 .encart-photographer {
+    font-weight: bold;
     color: black;
-    background-color: #db8876;
-    width: 340px;
+    background-color: #D3573C;
+    width: 250px;
     border-radius: 5px;
     position: fixed;
     right: 2%;
     bottom: 0%;
-    top: 95%;
     padding: 0px 20px;
 }
 

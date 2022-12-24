@@ -2,7 +2,6 @@ async function getPhotographers() {
     // Récupère les datas dans le json
     const response = await fetch('data/photographers.json');
     const photographers = await response.json();
-    console.log(photographers);
     // retourne le tableau photographers
     return photographers;
 }

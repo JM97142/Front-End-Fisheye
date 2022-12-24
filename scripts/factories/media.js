@@ -1,6 +1,5 @@
 //Affichage des medias de la page photographe
 function mediaFactory(media) {
-
     const { photographerId, image, video, title, id, likes, date, price } = media;
 
     const videoFiles = `./assets/medias/${photographerId}/${video}`;
@@ -23,6 +22,7 @@ function mediaFactory(media) {
         const imgLikes = document.createElement( 'p' );
         imgLikes.textContent = likes;
         imgLikes.className = "img-media-likes";
+        imgLikes.setAttribute("aria-label", "likes");
 
         const iconLikes = document.createElement ( 'i' );
         iconLikes.className = "fa-solid fa-heart";
@@ -55,9 +55,10 @@ function mediaFactory(media) {
         const videoLikes = document.createElement( 'p' );
         videoLikes.textContent = likes;
         videoLikes.className = "video-media-likes";
+        videoLikes.setAttribute("aria-label", "likes");
 
         const iconLikes = document.createElement ( 'i' );
-        iconLikes.className = "fas fa-heart";
+        iconLikes.className = "fa-solid fa-heart";
 
         divMedia.appendChild(videoPhotographer);
         videoPhotographer.appendChild(srcMedia);
@@ -84,4 +85,28 @@ function mediaFactory(media) {
         return article;
     }
     return { photographerId, image, video, title, id, likes, date, price, getMediaCardDOM }
+}
+
+// Encart du photographe
+function encartFactory(data) {
+    const { price, likes } = data;
+    const photographersPrice = `${price}€ / jour`;
+
+    function getEncartCardDOM() {
+        const encartDiv = document.createElement( 'div' );
+        encartDiv.className = "encart-photographer";
+
+        const iconLikes = document.createElement ( 'i' );
+        iconLikes.className = "fa-solid fa-heart";
+        
+        const pricePhotographer = document.createElement( 'p' );
+        pricePhotographer.textContent = photographersPrice;
+        pricePhotographer.className = "price-encart";
+
+        encartDiv.appendChild(iconLikes);
+        encartDiv.appendChild(pricePhotographer);
+
+        return encartDiv;
+    }
+    return { price, likes, getEncartCardDOM }
 }

@@ -47,6 +47,14 @@ async function displayMedia(tabMedias) {
     }
 }
 
+async function displayEncart(data) {
+    const photographerEncart = document.querySelector(".media-content");
+
+    const encartModel = encartFactory(data);
+    const encartCardDOM = encartModel.getEncartCardDOM();
+    photographerEncart.appendChild(encartCardDOM);
+}
+
 async function init() {
     // Récupère l'id et le converti en nombre 
     const params = new URL(document.location).searchParams;
@@ -59,8 +67,8 @@ async function init() {
     if (photographer !== null) {
         displayData(photographer);
         displayMedia(media);
+        displayEncart(photographer);
     }
-    console.log(media);
 }
 
 init();
