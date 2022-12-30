@@ -47,8 +47,20 @@ async function displayMedia(tabMedias) {
     }
 }
 
-async function displayEncart(data) {
+async function displayEncart(photographer, media) {
     const photographerEncart = document.querySelector(".media-content");
+
+    let sumLikes = 0;
+
+    for (let i=0; i<media.length; i++) {
+        const mediaLikes = media[i].likes;
+        sumLikes = sumLikes + mediaLikes;
+    }
+
+    const data = { 
+        "price":photographer.price, 
+        "likes":sumLikes
+    };
 
     const encartModel = encartFactory(data);
     const encartCardDOM = encartModel.getEncartCardDOM();
@@ -67,7 +79,7 @@ async function init() {
     if (photographer !== null) {
         displayData(photographer);
         displayMedia(media);
-        displayEncart(photographer);
+        displayEncart(photographer, media);
     }
 }
 

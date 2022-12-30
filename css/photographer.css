@@ -1,7 +1,53 @@
 #contact_modal {
     display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
 }
 
+/* HEADER PAGE PHOTOGRAPHER */
+.photograph-header {
+    background-color: #FAFAFA;
+    height: 300px;
+    margin: 0 100px;
+}
+
+.photographer_header {
+    margin-top: 40px;
+    padding: 50px 40px 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name_profil {
+    color: #D3573C;
+    font-size: 50px;
+    font-weight: 100;
+}
+
+.city_profil {
+    color: #901C1C;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.description_profil {
+    color: #525252;
+    font-size: 1em;
+}
+
+.img_profil {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* MEDIAS PAGE PHOTOGRAPHER */
 .media-content {
     display: flex;
     flex-wrap: wrap;
@@ -62,6 +108,9 @@
 
 /* ENCART */
 .encart-photographer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     font-weight: bold;
     color: black;
     background-color: #DB8876;
@@ -75,6 +124,9 @@
 
 /* FORM */
 .modal {
+    z-index: 1;
+    left: 0;
+    top: 0;
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;

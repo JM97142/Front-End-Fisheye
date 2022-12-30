@@ -19,17 +19,44 @@
       </div> 
     </main>
     <div id="contact_modal">
-			<div class="modal">
+			<div class="modal" role="dialog">
 				<header>
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
+				<form id="form">
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="firstname">Prénom</label>
+						<input
+              id="firstname"
+              name="firstname"
+              type="text"
+            />
 					</div>
-          <button class="contact_button">Envoyer</button>
+					<div>
+						<label for="lastname">Nom</label>
+						<input
+              id="lastname"
+              name="lastname"
+              type="text" 
+            />
+					</div>
+					<div>
+						<label for="email">Email</label>
+						<input
+              id="email"
+              name="email"
+              type="email" 
+            />
+					</div>
+					<div>
+						<label for="message">Votre message</label>
+						<input 
+              id="message"
+              type="text"
+            />
+					</div>
+          <button class="contact_button" type="submit">Envoyer</button>
 				</form>
 			</div>
 		</div>
@@ -37,5 +64,6 @@
     <script src="/scripts/factories/photographer.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="https://kit.fontawesome.com/0667395aa5.js" crossorigin="anonymous"></script>
   </body>
 </html>

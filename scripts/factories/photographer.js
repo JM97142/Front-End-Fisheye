@@ -97,3 +97,32 @@ function profilsFactory(data) {
     }
     return { picture, name, city, country, tagline, price, id, getProfilCardDOM }
 }
+
+// Encart du photographe
+function encartFactory(data) {
+    const { price, likes } = data;
+    const photographersPrice = `${price}€ / jour`;
+
+    function getEncartCardDOM() {
+        const encartDiv = document.createElement( 'div' );
+        encartDiv.className = "encart-photographer";
+
+        const iconLikes = document.createElement ( 'i' );
+        iconLikes.className = "fa-solid fa-heart";
+        
+        const pricePhotographer = document.createElement( 'p' );
+        pricePhotographer.textContent = photographersPrice;
+        pricePhotographer.className = "price-encart";
+        
+        const likesPhotographer = document.createElement( 'p' );
+        likesPhotographer.textContent = likes;
+        likesPhotographer.className = "price-encart";
+
+        encartDiv.appendChild(likesPhotographer);
+        encartDiv.appendChild(iconLikes);
+        encartDiv.appendChild(pricePhotographer);
+
+        return encartDiv;
+    }
+    return { price, likes, getEncartCardDOM }
+}

@@ -86,27 +86,3 @@ function mediaFactory(media) {
     }
     return { photographerId, image, video, title, id, likes, date, price, getMediaCardDOM }
 }
-
-// Encart du photographe
-function encartFactory(data) {
-    const { price, likes } = data;
-    const photographersPrice = `${price}€ / jour`;
-
-    function getEncartCardDOM() {
-        const encartDiv = document.createElement( 'div' );
-        encartDiv.className = "encart-photographer";
-
-        const iconLikes = document.createElement ( 'i' );
-        iconLikes.className = "fa-solid fa-heart";
-        
-        const pricePhotographer = document.createElement( 'p' );
-        pricePhotographer.textContent = photographersPrice;
-        pricePhotographer.className = "price-encart";
-
-        encartDiv.appendChild(iconLikes);
-        encartDiv.appendChild(pricePhotographer);
-
-        return encartDiv;
-    }
-    return { price, likes, getEncartCardDOM }
-}
