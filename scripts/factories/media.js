@@ -4,13 +4,24 @@ function mediaFactory(media) {
 
     const videoFiles = `./assets/medias/${photographerId}/${video}`;
     const imgFiles = `./assets/medias/${photographerId}/${image}`;
+    
     // Affiche les images des photographe
     function getImgCardDOM() {
         const divMedia = document.createElement( 'article' );
 
+        const lienCarrousel = document.createElement( 'a' );
+        lienCarrousel.addEventListener('click', function() {
+            const mediaContent = document.querySelector(".media-content");
+            const lightBox = lightboxFactory(media);
+            const lightbox = lightBox.getLightbox();
+
+            mediaContent.appendChild(lightbox);
+        });
+
         const imgPhotographer = document.createElement( 'img' );
         imgPhotographer.setAttribute("src", imgFiles);
-        imgPhotographer.className = "img-media";
+        imgPhotographer.classList = "img-media item";
+        
 
         const divInfos = document.createElement( 'div');
         divInfos.className = "media-infos";
@@ -27,7 +38,8 @@ function mediaFactory(media) {
         const iconLikes = document.createElement ( 'i' );
         iconLikes.className = "fa-solid fa-heart";
 
-        divMedia.appendChild(imgPhotographer);
+        lienCarrousel.appendChild(imgPhotographer);
+        divMedia.appendChild(lienCarrousel);
         divMedia.appendChild(divInfos);
         divInfos.appendChild(imgTitle);
         divInfos.appendChild(imgLikes);
@@ -38,14 +50,25 @@ function mediaFactory(media) {
 
     // Affiche les videos du photographe
     function getVideoCardDOM() {
+        const carrousel = document.querySelector( '.carrousel' );
+
         const divMedia = document.createElement( 'article' );
+
+        const lienCarrousel = document.createElement( 'a' );
+        lienCarrousel.addEventListener('click', function() {
+            const mediaContent = document.querySelector(".media-content");
+            const lightBox = lightboxFactory(media);
+            const lightbox = lightBox.getLightbox();
+
+            mediaContent.appendChild(lightbox);
+        });
 
         const srcMedia = document.createElement( 'source' );
         const videoPhotographer = document.createElement( 'video' );
         videoPhotographer.setAttribute("src", videoFiles);
-        videoPhotographer.className = "video-media";
+        videoPhotographer.classList = "video-media item";
 
-        const divInfos = document.createElement( 'div');
+        const divInfos = document.createElement( 'div' );
         divInfos.className = "media-infos";
 
         const videoTitle = document.createElement( 'h2' );
@@ -60,8 +83,8 @@ function mediaFactory(media) {
         const iconLikes = document.createElement ( 'i' );
         iconLikes.className = "fa-solid fa-heart";
 
-        divMedia.appendChild(videoPhotographer);
-        videoPhotographer.appendChild(srcMedia);
+        lienCarrousel.appendChild(videoPhotographer);
+        divMedia.appendChild(lienCarrousel);
         divMedia.appendChild(divInfos);
         divInfos.appendChild(videoTitle);
         divInfos.appendChild(videoLikes);
@@ -73,6 +96,15 @@ function mediaFactory(media) {
     // Affiche l'ensemble des medias
     function getMediaCardDOM() {
         const article = document.createElement( 'article' );
+        
+        const lienCarrousel = document.createElement( 'a' );
+        lienCarrousel.href = `/photographer.html?id=${id}`;
+        lienCarrousel.addEventListener('click', function() {
+            const mediaContent = document.querySelector(".media-content");
+            const lightbox = lightbox.getLightbox();
+
+            mediaContent.appendChild(lightbox);
+        });
 
         if (image) {
             return getImgCardDOM();
@@ -81,6 +113,8 @@ function mediaFactory(media) {
         if (video) {
             return getVideoCardDOM();
         }
+
+        article.appendChild(lienCarrousel);
 
         return article;
     }

@@ -67,6 +67,14 @@ async function displayEncart(photographer, media) {
     photographerEncart.appendChild(encartCardDOM);
 }
 
+// async function displayCarrousel(media) {
+//     const mediaContent = document.querySelector(".media-content");
+    
+//     const lightBox = lightboxFactory(media);
+//     const lightbox = lightBox.getLightbox();
+//     mediaContent.appendChild(lightbox);
+// }
+
 async function init() {
     // Récupère l'id et le converti en nombre 
     const params = new URL(document.location).searchParams;
@@ -80,6 +88,7 @@ async function init() {
         displayData(photographer);
         displayMedia(media);
         displayEncart(photographer, media);
+        //displayCarrousel(media);
     }
 }
 
