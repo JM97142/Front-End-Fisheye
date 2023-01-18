@@ -1,3 +1,6 @@
+// DOM
+modal = document.getElementsByClassName('.modal');
+
 function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
@@ -9,6 +12,14 @@ function closeModal() {
     modal.style.display = "none";
     modal.setAttribute('aria-hidden', 'false');
 }
+
+// document.on('keydown', e => {
+//     const keyCode = e.keyCode ? e.keyCode : e.which
+  
+//     if (modal.setAttribute('aria-hidden') == 'false' && keyCode === 27) {
+//         closeModal();
+//     }
+// });
 
 // Formulaire de contact
 const firstNameInput = document.querySelector("#firstname");

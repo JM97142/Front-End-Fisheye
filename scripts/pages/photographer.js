@@ -12,6 +12,7 @@ async function getPhotographer(id) {
     return null;
 }
 
+// Création d'un tableau des médias
 async function getMedias(photographerId) {
     // Récupère les datas dans le json
     const response = await fetch ("data/photographers.json");
@@ -29,6 +30,7 @@ async function getMedias(photographerId) {
     return tabMedias;
 }
 
+// Affiche l'en-tête de la page photographer
 async function displayData(photographer) { 
     const photographerHeader = document.querySelector(".photograph-header");
 
@@ -37,16 +39,18 @@ async function displayData(photographer) {
     photographerHeader.appendChild(userCardDOM);
 }
 
+// Affiche les médias du photographe
 async function displayMedia(tabMedias) {
     const mediaContent = document.querySelector(".media-content");
     
     for (let i=0; i<tabMedias.length; i++) {
-        const mediaModel = mediaFactory(tabMedias[i]);
+        const mediaModel = mediaFactory(tabMedias[i], tabMedias);
         const mediaCardDOM = mediaModel.getMediaCardDOM();
         mediaContent.appendChild(mediaCardDOM);
     }
 }
 
+// Affiche l'encart de la page photographer
 async function displayEncart(photographer, media) {
     const photographerEncart = document.querySelector(".media-content");
 
@@ -67,12 +71,9 @@ async function displayEncart(photographer, media) {
     photographerEncart.appendChild(encartCardDOM);
 }
 
-// async function displayCarrousel(media) {
-//     const mediaContent = document.querySelector(".media-content");
-    
-//     const lightBox = lightboxFactory(media);
-//     const lightbox = lightBox.getLightbox();
-//     mediaContent.appendChild(lightbox);
+// Affiche le système de tri des médias
+// async function triSystem(tabMedias) {
+
 // }
 
 async function init() {
@@ -88,7 +89,6 @@ async function init() {
         displayData(photographer);
         displayMedia(media);
         displayEncart(photographer, media);
-        //displayCarrousel(media);
     }
 }
 

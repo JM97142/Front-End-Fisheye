@@ -1,18 +1,26 @@
 //Affichage des medias de la page photographe
-function mediaFactory(media) {
+function mediaFactory(media, tabMedias) {
     const { photographerId, image, video, title, id, likes, date, price } = media;
 
     const videoFiles = `./assets/medias/${photographerId}/${video}`;
     const imgFiles = `./assets/medias/${photographerId}/${image}`;
     
+    let likesMedia = likes;
+    let sumLikes = 0;
+
+    for (let i=0; i<tabMedias.length; i++) {
+        const mediaLikes = tabMedias[i].likes;
+        sumLikes = sumLikes + mediaLikes;
+    }
+    
     // Affiche les images des photographe
     function getImgCardDOM() {
         const divMedia = document.createElement( 'article' );
-
+        // Permet la création du caroussel de media
         const lienCarrousel = document.createElement( 'a' );
         lienCarrousel.addEventListener('click', function() {
             const mediaContent = document.querySelector(".media-content");
-            const lightBox = lightboxFactory(media);
+            const lightBox = lightboxFactory(tabMedias, media);
             const lightbox = lightBox.getLightbox();
 
             mediaContent.appendChild(lightbox);
@@ -20,10 +28,10 @@ function mediaFactory(media) {
 
         const imgPhotographer = document.createElement( 'img' );
         imgPhotographer.setAttribute("src", imgFiles);
-        imgPhotographer.classList = "img-media item";
+        imgPhotographer.classList = "img-media";
         
 
-        const divInfos = document.createElement( 'div');
+        const divInfos = document.createElement( 'div' );
         divInfos.className = "media-infos";
 
         const imgTitle = document.createElement( 'h2' );
@@ -37,6 +45,13 @@ function mediaFactory(media) {
 
         const iconLikes = document.createElement ( 'i' );
         iconLikes.className = "fa-solid fa-heart";
+        // Permet à l'utilisateur de like le média
+        iconLikes.addEventListener('click', function() {
+            imgLikes.textContent = ++likesMedia;
+
+            const likesEncart = document.querySelector( '.price-encart' );
+            likesEncart.textContent = ++sumLikes;
+        });
 
         lienCarrousel.appendChild(imgPhotographer);
         divMedia.appendChild(lienCarrousel);
@@ -50,23 +65,20 @@ function mediaFactory(media) {
 
     // Affiche les videos du photographe
     function getVideoCardDOM() {
-        const carrousel = document.querySelector( '.carrousel' );
-
         const divMedia = document.createElement( 'article' );
-
+        // Permet la création du caroussel de media
         const lienCarrousel = document.createElement( 'a' );
         lienCarrousel.addEventListener('click', function() {
             const mediaContent = document.querySelector(".media-content");
-            const lightBox = lightboxFactory(media);
+            const lightBox = lightboxFactory(media, tabMedias);
             const lightbox = lightBox.getLightbox();
 
             mediaContent.appendChild(lightbox);
         });
 
-        const srcMedia = document.createElement( 'source' );
         const videoPhotographer = document.createElement( 'video' );
         videoPhotographer.setAttribute("src", videoFiles);
-        videoPhotographer.classList = "video-media item";
+        videoPhotographer.classList = "video-media";
 
         const divInfos = document.createElement( 'div' );
         divInfos.className = "media-infos";
@@ -82,6 +94,10 @@ function mediaFactory(media) {
 
         const iconLikes = document.createElement ( 'i' );
         iconLikes.className = "fa-solid fa-heart";
+        // Permet à l'utilisateur de like le média
+        iconLikes.addEventListener('click', function() {
+            videoLikes.textContent = ++likesMedia;
+        });
 
         lienCarrousel.appendChild(videoPhotographer);
         divMedia.appendChild(lienCarrousel);
@@ -96,15 +112,6 @@ function mediaFactory(media) {
     // Affiche l'ensemble des medias
     function getMediaCardDOM() {
         const article = document.createElement( 'article' );
-        
-        const lienCarrousel = document.createElement( 'a' );
-        lienCarrousel.href = `/photographer.html?id=${id}`;
-        lienCarrousel.addEventListener('click', function() {
-            const mediaContent = document.querySelector(".media-content");
-            const lightbox = lightbox.getLightbox();
-
-            mediaContent.appendChild(lightbox);
-        });
 
         if (image) {
             return getImgCardDOM();
@@ -113,8 +120,6 @@ function mediaFactory(media) {
         if (video) {
             return getVideoCardDOM();
         }
-
-        article.appendChild(lienCarrousel);
 
         return article;
     }

@@ -198,18 +198,23 @@ form input {
 }
 
 .carrousel figcaption {
-    font-size: 25px;
+    font-size: 20px;
     color: #901C1C;
 }
 
 .carrousel i {
-    font-size: 70px;
+    font-size: 60px;
     color: #901C1C;
 }
 
 .img-carrousel, .video-carrousel {
-    height: 50%;
     width: 100%;
     height: 86vh;
     object-fit: contain;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1%;
+    left: 93%;
 }
