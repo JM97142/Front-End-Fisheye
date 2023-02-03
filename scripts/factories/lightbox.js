@@ -3,6 +3,7 @@ function lightboxFactory(tabMedias, media) {
     
     const { photographerId, image, video, title, id, likes, date, price } = media;
 
+    // Récupère l'index des médias
     let mediaIndex = 0;
 
     for (let i=0; i<tabMedias.length; i++) {
@@ -12,7 +13,7 @@ function lightboxFactory(tabMedias, media) {
             break;
         }
     }
-
+    // Fonctions pour le contrôle du carrousel
     function nextSlide() {
         if (mediaIndex + 1 >= tabMedias.length) {
             const lastItem = document.querySelector(`.item-${mediaIndex}`);
@@ -54,6 +55,33 @@ function lightboxFactory(tabMedias, media) {
         currentItem.setAttribute('aria-hidden', 'false');
     }
 
+    // window.addEventListener('keydown', (event) => {
+    //     const carrousel = document.querySelector( '.carrousel');
+
+    //     if (event.defaultPrevented) {
+    //         return;
+    //     }
+
+    //     if (event.keyCode === 39) {
+    //         nextSlide();
+    //     }
+    //     else if (event.keyCode === 37) {
+    //         previousSlide();
+    //     }
+    //     else if (event.keyCode === 27) {
+    //         carrousel.remove();
+    //     }
+    // });
+    window.keydown(function(e) {
+        const keyCode = e.keyCode ? e.keyCode : e.which
+      
+        if (keyCode === 39) {
+            nextSlide()
+        } else if (keyCode === 37) {
+            previousSlide()
+        }
+     })
+
     function getLightbox() {
         const carrousel = document.createElement( 'div' );
         carrousel.className = "carrousel";
@@ -74,6 +102,7 @@ function lightboxFactory(tabMedias, media) {
         arrowRight.className = "fa-sharp fa-solid fa-angle-right";
         nextBtn.addEventListener('click', function() {
             nextSlide();
+
         });
         // Ferme le carroussel
         const closeBtn = document.createElement( 'span' );
@@ -83,11 +112,11 @@ function lightboxFactory(tabMedias, media) {
         closeBtn.addEventListener('click', function() {
             carrousel.remove();
         });
-
-        const mediaContainer = document.createElement( 'div' );
-
+        
         mediaCarrousel.appendChild(previousBtn);
         previousBtn.appendChild(arrowLeft);
+
+        const mediaContainer = document.createElement( 'div' );
 
         for (let i=0; i<tabMedias.length; i++) {      
             const currentMedia = tabMedias[i];
@@ -128,6 +157,7 @@ function lightboxFactory(tabMedias, media) {
 
                 const videoPhotographer = document.createElement( 'video' );
                 videoPhotographer.setAttribute("src", videoFiles);
+                videoPhotographer.setAttribute("controls", "true");
                 videoPhotographer.classList = `video-carrousel item-${i}`;
 
                 mediaContainer.appendChild(container)

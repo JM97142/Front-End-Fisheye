@@ -47,6 +47,29 @@
     object-fit: cover;
 }
 
+/* TRI */
+.tri-option {
+    margin-top: 50px;
+    margin-left: 100px;
+    font-weight: bold;
+}
+
+.tri-option label {
+    margin-right: 20px;
+}
+
+#tri-selection {
+    font-size: 20px;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 /* MEDIAS PAGE PHOTOGRAPHER */
 .media-content {
     display: flex;
@@ -57,14 +80,7 @@
     margin: 50px 100px;
 }
 
-.img-media {
-    height: 300px;
-    width: 350px;
-    border-radius: 2%;
-    object-fit: cover;
-}
-
-.video-media { 
+.img-media, .video-media {
     height: 300px;
     width: 350px;
     border-radius: 2%;
@@ -85,8 +101,11 @@
     font-weight: 200;
 }
 
-.img-media-likes, .video-media-likes {
+.media-likes {
     font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .contact_button {
@@ -115,6 +134,7 @@
     color: black;
     background-color: #DB8876;
     width: 250px;
+    height: 45px;
     border-radius: 5px 5px 0px 0px;
     position: fixed;
     right: 2%;

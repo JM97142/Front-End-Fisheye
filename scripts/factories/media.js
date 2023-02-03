@@ -6,12 +6,6 @@ function mediaFactory(media, tabMedias) {
     const imgFiles = `./assets/medias/${photographerId}/${image}`;
     
     let likesMedia = likes;
-    let sumLikes = 0;
-
-    for (let i=0; i<tabMedias.length; i++) {
-        const mediaLikes = tabMedias[i].likes;
-        sumLikes = sumLikes + mediaLikes;
-    }
     
     // Affiche les images des photographe
     function getImgCardDOM() {
@@ -38,6 +32,9 @@ function mediaFactory(media, tabMedias) {
         imgTitle.textContent = title;
         imgTitle.className = "img-media-title";
 
+        const divLikes = document.createElement( 'div' );
+        divLikes.className = "media-likes";
+
         const imgLikes = document.createElement( 'p' );
         imgLikes.textContent = likes;
         imgLikes.className = "img-media-likes";
@@ -49,16 +46,17 @@ function mediaFactory(media, tabMedias) {
         iconLikes.addEventListener('click', function() {
             imgLikes.textContent = ++likesMedia;
 
-            const likesEncart = document.querySelector( '.price-encart' );
-            likesEncart.textContent = ++sumLikes;
+            const likesEncart = document.querySelector( '.likes-encart' );
+            likesEncart.textContent = Number(likesEncart) + 1;
         });
 
         lienCarrousel.appendChild(imgPhotographer);
         divMedia.appendChild(lienCarrousel);
         divMedia.appendChild(divInfos);
         divInfos.appendChild(imgTitle);
-        divInfos.appendChild(imgLikes);
-        divInfos.appendChild(iconLikes);
+        divInfos.appendChild(divLikes);
+        divLikes.appendChild(imgLikes);
+        divLikes.appendChild(iconLikes);
 
         return divMedia;
     }
@@ -87,6 +85,9 @@ function mediaFactory(media, tabMedias) {
         videoTitle.textContent = title;
         videoTitle.className = "video-media-title";
 
+        const divLikes = document.createElement( 'div' );
+        divLikes.className = "media-likes";
+
         const videoLikes = document.createElement( 'p' );
         videoLikes.textContent = likes;
         videoLikes.className = "video-media-likes";
@@ -97,14 +98,18 @@ function mediaFactory(media, tabMedias) {
         // Permet à l'utilisateur de like le média
         iconLikes.addEventListener('click', function() {
             videoLikes.textContent = ++likesMedia;
+
+            const likesEncart = document.querySelector( '.likes-encart' );
+            likesEncart.textContent = Number(likesEncart) + 1;
         });
 
         lienCarrousel.appendChild(videoPhotographer);
         divMedia.appendChild(lienCarrousel);
         divMedia.appendChild(divInfos);
         divInfos.appendChild(videoTitle);
-        divInfos.appendChild(videoLikes);
-        divInfos.appendChild(iconLikes);
+        divInfos.appendChild(divLikes);
+        divLikes.appendChild(videoLikes);
+        divLikes.appendChild(iconLikes);
 
         return divMedia;
     }

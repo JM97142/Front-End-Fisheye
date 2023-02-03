@@ -107,16 +107,16 @@ function encartFactory(data) {
         const encartDiv = document.createElement( 'div' );
         encartDiv.className = "encart-photographer";
 
+        const likesPhotographer = document.createElement( 'span' );
+        likesPhotographer.textContent = likes;
+        likesPhotographer.className = "likes-encart";
+        
         const iconLikes = document.createElement ( 'i' );
         iconLikes.className = "fa-solid fa-heart";
         
-        const pricePhotographer = document.createElement( 'p' );
+        const pricePhotographer = document.createElement( 'span' );
         pricePhotographer.textContent = photographersPrice;
         pricePhotographer.className = "price-encart";
-        
-        const likesPhotographer = document.createElement( 'p' );
-        likesPhotographer.textContent = likes;
-        likesPhotographer.className = "price-encart";
 
         encartDiv.appendChild(likesPhotographer);
         encartDiv.appendChild(iconLikes);

@@ -42,6 +42,8 @@ async function displayData(photographer) {
 // Affiche les médias du photographe
 async function displayMedia(tabMedias) {
     const mediaContent = document.querySelector(".media-content");
+
+    mediaContent.innerHTML = '';
     
     for (let i=0; i<tabMedias.length; i++) {
         const mediaModel = mediaFactory(tabMedias[i], tabMedias);
@@ -71,10 +73,48 @@ async function displayEncart(photographer, media) {
     photographerEncart.appendChild(encartCardDOM);
 }
 
-// Affiche le système de tri des médias
-// async function triSystem(tabMedias) {
+// Système de tri des médias
+async function displayTri(tabMedias) {
+    const triSystem = document.querySelector("#tri-selection");
 
-// }
+    triSystem.addEventListener('change', function(event) {
+        if (event.target.value === 'popularité') {
+            tabMedias.sort((a, b) => {
+                if (a.likes > b.likes) {
+                    return -1;
+                } 
+                else if (a.likes < b.likes) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+        else if (event.target.value === 'date') {
+            tabMedias.sort((a, b) => {
+                if (new Date(a.date) > new Date(b.date)) {
+                    return -1;
+                } 
+                else if (new Date(a.date) > new Date(b.date)) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+        else if (event.target.value === 'titre') {
+            tabMedias.sort((a, b) => {
+                if (a.title < b.title) {
+                    return -1;
+                } 
+                else if (a.title > b.title) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+    // Retourne le tableau des médias trié
+    displayMedia(tabMedias);
+    });
+}
 
 async function init() {
     // Récupère l'id et le converti en nombre 
@@ -87,6 +127,7 @@ async function init() {
     // Verifie si on retourne bien un photographe
     if (photographer !== null) {
         displayData(photographer);
+        displayTri(media);
         displayMedia(media);
         displayEncart(photographer, media);
     }
