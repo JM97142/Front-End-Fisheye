@@ -55,34 +55,34 @@ function lightboxFactory(tabMedias, media) {
         currentItem.setAttribute('aria-hidden', 'false');
     }
 
-    // window.addEventListener('keydown', (event) => {
-    //     const carrousel = document.querySelector( '.carrousel');
+    // Fonction qui gère la fermeture de la lightbox
+    function removeLlightbox() {
+        const carrousel = document.querySelector('.carrousel');
+        carrousel.remove();
 
-    //     if (event.defaultPrevented) {
-    //         return;
-    //     }
+        window.removeEventListener('keydown', onKeydown);
+    }
 
-    //     if (event.keyCode === 39) {
-    //         nextSlide();
-    //     }
-    //     else if (event.keyCode === 37) {
-    //         previousSlide();
-    //     }
-    //     else if (event.keyCode === 27) {
-    //         carrousel.remove();
-    //     }
-    // });
-    window.keydown(function(e) {
-        const keyCode = e.keyCode ? e.keyCode : e.which
-      
-        if (keyCode === 39) {
-            nextSlide()
-        } else if (keyCode === 37) {
-            previousSlide()
+    // Navigation dans la lightbox via les touches du clavier
+    function onKeydown(event) {
+        if (event.defaultPrevented) {
+            return;
         }
-     })
+    
+        if (event.keyCode === 39) {
+             nextSlide();
+        } else if (event.keyCode === 37) {
+            previousSlide();
+        }
+
+        if (event.keyCode === 27) {
+            removeLlightbox();
+        }
+    }
 
     function getLightbox() {
+        window.addEventListener('keydown', onKeydown);
+
         const carrousel = document.createElement( 'div' );
         carrousel.className = "carrousel";
         
@@ -110,7 +110,7 @@ function lightboxFactory(tabMedias, media) {
         const cross = document.createElement( 'i' );
         cross.className = "fa-sharp fa-solid fa-xmark";
         closeBtn.addEventListener('click', function() {
-            carrousel.remove();
+            removeLlightbox();
         });
         
         mediaCarrousel.appendChild(previousBtn);
@@ -170,7 +170,7 @@ function lightboxFactory(tabMedias, media) {
                 container.appendChild(nameMedia);
             }
         }
-        
+
         carrousel.appendChild(mediaCarrousel);
         mediaCarrousel.appendChild(nextBtn);
         nextBtn.appendChild(arrowRight);

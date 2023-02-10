@@ -5,7 +5,7 @@ function photographerFactory(data) {
     const picture = `assets/photographers/${portrait}`;
     const location = `${city}, ${country}`;
     const dayPrice = `${price}€/jour`;
-    // Ajout de l'attribut alt au logo
+
     const homeLogo = document.querySelector('.logo');
     homeLogo.setAttribute("alt", "Fisheye Home page");
 
@@ -66,6 +66,7 @@ function profilsFactory(data) {
         article.className = 'photographer_header';
 
         const div = document.createElement( 'div' );
+        div.className = 'photographer_content';
 
         const photographerName = document.createElement( 'h2' );
         photographerName.textContent = name;
@@ -105,22 +106,30 @@ function encartFactory(data) {
 
     function getEncartCardDOM() {
         const encartDiv = document.createElement( 'div' );
-        encartDiv.className = "encart-photographer";
+        encartDiv.className = "encart-div";
+
+        const likesDiv = document.createElement( 'div' );
+        likesDiv.className = "likes-div";
 
         const likesPhotographer = document.createElement( 'span' );
         likesPhotographer.textContent = likes;
-        likesPhotographer.className = "likes-encart";
+        likesPhotographer.className = "nbrLikes";
         
         const iconLikes = document.createElement ( 'i' );
         iconLikes.className = "fa-solid fa-heart";
         
+        const priceDiv = document.createElement( 'div' );
+        priceDiv.className = "price-div";
+
         const pricePhotographer = document.createElement( 'span' );
         pricePhotographer.textContent = photographersPrice;
         pricePhotographer.className = "price-encart";
 
-        encartDiv.appendChild(likesPhotographer);
-        encartDiv.appendChild(iconLikes);
-        encartDiv.appendChild(pricePhotographer);
+        encartDiv.appendChild(likesDiv);
+        likesDiv.appendChild(likesPhotographer);
+        likesDiv.appendChild(iconLikes);
+        encartDiv.appendChild(priceDiv);
+        priceDiv.appendChild(pricePhotographer);
 
         return encartDiv;
     }

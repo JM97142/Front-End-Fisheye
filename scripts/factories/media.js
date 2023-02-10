@@ -5,7 +5,15 @@ function mediaFactory(media, tabMedias) {
     const videoFiles = `./assets/medias/${photographerId}/${video}`;
     const imgFiles = `./assets/medias/${photographerId}/${image}`;
     
+    // const likesEncart = document.querySelector( '.nbrLikes' );
+
     let likesMedia = likes;
+    let sumLikes = 0;
+
+    for (let i=0; i<media.length; i++) {
+        const mediaLikes = media[i].likes;
+        sumLikes = sumLikes + mediaLikes;
+    }
     
     // Affiche les images des photographe
     function getImgCardDOM() {
@@ -46,8 +54,10 @@ function mediaFactory(media, tabMedias) {
         iconLikes.addEventListener('click', function() {
             imgLikes.textContent = ++likesMedia;
 
-            const likesEncart = document.querySelector( '.likes-encart' );
-            likesEncart.textContent = Number(likesEncart) + 1;
+            const likesEncart = document.querySelector( '.nbrLikes' );
+            likesTotal = parseInt(likesEncart.textContent);
+            likesTotal++;
+            likesEncart.textContent = likesTotal;
         });
 
         lienCarrousel.appendChild(imgPhotographer);
@@ -68,7 +78,7 @@ function mediaFactory(media, tabMedias) {
         const lienCarrousel = document.createElement( 'a' );
         lienCarrousel.addEventListener('click', function() {
             const mediaContent = document.querySelector(".media-content");
-            const lightBox = lightboxFactory(media, tabMedias);
+            const lightBox = lightboxFactory(tabMedias, media);
             const lightbox = lightBox.getLightbox();
 
             mediaContent.appendChild(lightbox);
@@ -98,9 +108,11 @@ function mediaFactory(media, tabMedias) {
         // Permet à l'utilisateur de like le média
         iconLikes.addEventListener('click', function() {
             videoLikes.textContent = ++likesMedia;
-
-            const likesEncart = document.querySelector( '.likes-encart' );
-            likesEncart.textContent = Number(likesEncart) + 1;
+            
+            const likesEncart = document.querySelector( '.nbrLikes' );
+            likesTotal = parseInt(likesEncart.textContent);
+            likesTotal++;
+            likesEncart.textContent = likesTotal;
         });
 
         lienCarrousel.appendChild(videoPhotographer);

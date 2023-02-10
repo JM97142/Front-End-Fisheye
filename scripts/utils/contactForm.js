@@ -13,13 +13,13 @@ function closeModal() {
     modal.setAttribute('aria-hidden', 'false');
 }
 
-// document.on('keydown', e => {
-//     const keyCode = e.keyCode ? e.keyCode : e.which
+window.addEventListener('keydown', function(event) {
+    const keyCode = event.keyCode ? event.keyCode : event.which
   
-//     if (modal.setAttribute('aria-hidden') == 'false' && keyCode === 27) {
-//         closeModal();
-//     }
-// });
+    if (keyCode === 27) {
+        closeModal();
+    }
+});
 
 // Formulaire de contact
 const firstNameInput = document.querySelector("#firstname");

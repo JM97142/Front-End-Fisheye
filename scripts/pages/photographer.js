@@ -54,7 +54,7 @@ async function displayMedia(tabMedias) {
 
 // Affiche l'encart de la page photographer
 async function displayEncart(photographer, media) {
-    const photographerEncart = document.querySelector(".media-content");
+    const photographerEncart = document.querySelector(".encart-photographer");
 
     let sumLikes = 0;
 
