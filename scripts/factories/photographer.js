@@ -8,6 +8,7 @@ function photographerFactory(data) {
 
     const homeLogo = document.querySelector('.logo');
     homeLogo.setAttribute("alt", "Fisheye Home page");
+    homeLogo.setAttribute("tabindex", "1");
 
     function getUserCardDOM() {
         const profilLink = document.createElement( 'a' );

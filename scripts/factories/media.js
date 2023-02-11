@@ -8,12 +8,6 @@ function mediaFactory(media, tabMedias) {
     // const likesEncart = document.querySelector( '.nbrLikes' );
 
     let likesMedia = likes;
-    let sumLikes = 0;
-
-    for (let i=0; i<media.length; i++) {
-        const mediaLikes = media[i].likes;
-        sumLikes = sumLikes + mediaLikes;
-    }
     
     // Affiche les images des photographe
     function getImgCardDOM() {

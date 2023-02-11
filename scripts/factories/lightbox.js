@@ -90,6 +90,7 @@ function lightboxFactory(tabMedias, media) {
         // Bouton pour afficher le média précédent
         const previousBtn = document.createElement( 'span' );
         previousBtn.className = "previous-btn";
+        previousBtn.setAttribute("alt", "Previous image");
         const arrowLeft = document.createElement( 'i' );
         arrowLeft.className = "fa-sharp fa-solid fa-angle-left";
         previousBtn.addEventListener('click', function() {
@@ -98,6 +99,7 @@ function lightboxFactory(tabMedias, media) {
         // Bouton pour afficher le média suivant
         const nextBtn = document.createElement( 'span' );
         nextBtn.className = "next-btn";
+        nextBtn.setAttribute("alt", "Next image");
         const arrowRight = document.createElement( 'i' );
         arrowRight.className = "fa-sharp fa-solid fa-angle-right";
         nextBtn.addEventListener('click', function() {
@@ -107,6 +109,7 @@ function lightboxFactory(tabMedias, media) {
         // Ferme le carroussel
         const closeBtn = document.createElement( 'span' );
         closeBtn.className = "close-btn";
+        closeBtn.setAttribute("alt", "Close dialog");
         const cross = document.createElement( 'i' );
         cross.className = "fa-sharp fa-solid fa-xmark";
         closeBtn.addEventListener('click', function() {
@@ -133,6 +136,7 @@ function lightboxFactory(tabMedias, media) {
 
                 const imgPhotographer = document.createElement( 'img' );
                 imgPhotographer.setAttribute("src", imgFiles);
+                imgPhotographer.setAttribute("alt", `${currentMedia.name}`);
                 imgPhotographer.classList = `img-carrousel item-${i}`;
 
                 mediaContainer.appendChild(container);
@@ -157,6 +161,7 @@ function lightboxFactory(tabMedias, media) {
 
                 const videoPhotographer = document.createElement( 'video' );
                 videoPhotographer.setAttribute("src", videoFiles);
+                videoPhotographer.setAttribute("alt", `${currentMedia.name}`);
                 videoPhotographer.setAttribute("controls", "true");
                 videoPhotographer.classList = `video-carrousel item-${i}`;
 
