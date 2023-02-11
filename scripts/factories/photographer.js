@@ -60,6 +60,7 @@ function profilsFactory(data) {
     
     const homeLogo = document.querySelector('.logo');
     homeLogo.setAttribute("alt", "Fisheye Home page");
+    homeLogo.setAttribute("tabindex", "1");
 
     function getProfilCardDOM() {
 
@@ -82,10 +83,11 @@ function profilsFactory(data) {
         description.className = 'description_profil';
 
         const contactButton = document.querySelector('.contact_button');
+        contactButton.setAttribute("alt", "Contact me");
 
         const photographerImg = document.createElement( 'img' );
         photographerImg.setAttribute("src", picture);
-        photographerImg.setAttribute("alt", "Mimi Keel");
+        photographerImg.setAttribute("alt", " ");
         photographerImg.className = 'img_profil';
 
         div.appendChild(photographerName);

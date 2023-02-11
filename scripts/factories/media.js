@@ -14,6 +14,7 @@ function mediaFactory(media, tabMedias) {
         const divMedia = document.createElement( 'article' );
         // Permet la création du caroussel de media
         const lienCarrousel = document.createElement( 'a' );
+        lienCarrousel.setAttribute("alt", `${title}, closeup view`);
         lienCarrousel.addEventListener('click', function() {
             const mediaContent = document.querySelector(".media-content");
             const lightBox = lightboxFactory(tabMedias, media);
@@ -37,13 +38,13 @@ function mediaFactory(media, tabMedias) {
         const divLikes = document.createElement( 'div' );
         divLikes.className = "media-likes";
 
-        const imgLikes = document.createElement( 'p' );
+        const imgLikes = document.createElement( 'span' );
         imgLikes.textContent = likes;
         imgLikes.className = "img-media-likes";
-        imgLikes.setAttribute("aria-label", "likes");
 
         const iconLikes = document.createElement ( 'i' );
         iconLikes.className = "fa-solid fa-heart";
+        iconLikes.setAttribute("aria-label", "likes");
         // Permet à l'utilisateur de like le média
         iconLikes.addEventListener('click', function() {
             imgLikes.textContent = ++likesMedia;
@@ -70,6 +71,7 @@ function mediaFactory(media, tabMedias) {
         const divMedia = document.createElement( 'article' );
         // Permet la création du caroussel de media
         const lienCarrousel = document.createElement( 'a' );
+        lienCarrousel.setAttribute("alt", `${title}, closeup view`);
         lienCarrousel.addEventListener('click', function() {
             const mediaContent = document.querySelector(".media-content");
             const lightBox = lightboxFactory(tabMedias, media);
@@ -92,13 +94,13 @@ function mediaFactory(media, tabMedias) {
         const divLikes = document.createElement( 'div' );
         divLikes.className = "media-likes";
 
-        const videoLikes = document.createElement( 'p' );
+        const videoLikes = document.createElement( 'span' );
         videoLikes.textContent = likes;
         videoLikes.className = "video-media-likes";
-        videoLikes.setAttribute("aria-label", "likes");
 
         const iconLikes = document.createElement ( 'i' );
         iconLikes.className = "fa-solid fa-heart";
+        iconLikes.setAttribute("aria-label", "likes");
         // Permet à l'utilisateur de like le média
         iconLikes.addEventListener('click', function() {
             videoLikes.textContent = ++likesMedia;

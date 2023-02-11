@@ -23,9 +23,19 @@ window.addEventListener('keydown', function(event) {
 
 // Formulaire de contact
 const firstNameInput = document.querySelector("#firstname");
+firstNameInput.setAttribute("alt", "First name");
+
 const lastNameInput = document.querySelector("#lastname");
+lastNameInput.setAttribute("alt", "Last name");
+
 const emailInput = document.querySelector("#email");
+emailInput.setAttribute("alt", "Email");
+
 const messageInput = document.querySelector("#message");
+messageInput.setAttribute("alt", "Your message");
+
+const contactBtn = document.querySelector(".contact_button");
+contactBtn.setAttribute("alt", "Send");
 
 form.addEventListener("submit", sendMessage);
 

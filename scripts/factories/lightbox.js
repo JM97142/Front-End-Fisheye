@@ -85,6 +85,8 @@ function lightboxFactory(tabMedias, media) {
 
         const carrousel = document.createElement( 'div' );
         carrousel.className = "carrousel";
+        carrousel.setAttribute("role", "dialog");
+        carrousel.setAttribute("aria-label", "image closeup view");
         
         const mediaCarrousel = document.createElement( 'figure' );
         // Bouton pour afficher le média précédent
@@ -136,7 +138,7 @@ function lightboxFactory(tabMedias, media) {
 
                 const imgPhotographer = document.createElement( 'img' );
                 imgPhotographer.setAttribute("src", imgFiles);
-                imgPhotographer.setAttribute("alt", `${currentMedia.name}`);
+                imgPhotographer.setAttribute("alt", currentMedia.title);
                 imgPhotographer.classList = `img-carrousel item-${i}`;
 
                 mediaContainer.appendChild(container);
@@ -161,7 +163,7 @@ function lightboxFactory(tabMedias, media) {
 
                 const videoPhotographer = document.createElement( 'video' );
                 videoPhotographer.setAttribute("src", videoFiles);
-                videoPhotographer.setAttribute("alt", `${currentMedia.name}`);
+                videoPhotographer.setAttribute("alt", currentMedia.title);
                 videoPhotographer.setAttribute("controls", "true");
                 videoPhotographer.classList = `video-carrousel item-${i}`;
 
