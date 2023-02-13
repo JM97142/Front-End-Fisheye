@@ -4,6 +4,7 @@ function triFactory(media, tabMedias) {
     function getTri() {
         const divTri = document.createElement( 'div' );
         divTri.className = "tri-option";
+        divTri.setAttribute("tabindex", "3");
 
         const label = document.createElement( 'label' );
         label.textContent = "Trier par";

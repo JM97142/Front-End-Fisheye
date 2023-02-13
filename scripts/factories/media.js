@@ -5,16 +5,15 @@ function mediaFactory(media, tabMedias) {
     const videoFiles = `./assets/medias/${photographerId}/${video}`;
     const imgFiles = `./assets/medias/${photographerId}/${image}`;
     
-    // const likesEncart = document.querySelector( '.nbrLikes' );
-
     let likesMedia = likes;
     
-    // Affiche les images des photographe
+    // Affiche les images des photographes
     function getImgCardDOM() {
         const divMedia = document.createElement( 'article' );
         // Permet la création du caroussel de media
         const lienCarrousel = document.createElement( 'a' );
         lienCarrousel.setAttribute("alt", `${title}, closeup view`);
+        lienCarrousel.setAttribute("tabindex", "4");
         lienCarrousel.addEventListener('click', function() {
             const mediaContent = document.querySelector(".media-content");
             const lightBox = lightboxFactory(tabMedias, media);
@@ -72,6 +71,7 @@ function mediaFactory(media, tabMedias) {
         // Permet la création du caroussel de media
         const lienCarrousel = document.createElement( 'a' );
         lienCarrousel.setAttribute("alt", `${title}, closeup view`);
+        lienCarrousel.setAttribute("tabindex", "4");
         lienCarrousel.addEventListener('click', function() {
             const mediaContent = document.querySelector(".media-content");
             const lightBox = lightboxFactory(tabMedias, media);

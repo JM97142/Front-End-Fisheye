@@ -48,17 +48,17 @@
 }
 
 /* TRI */
-.tri-option {
+.tri-div {
     margin-top: 50px;
     margin-left: 100px;
     font-weight: bold;
 }
 
-.tri-option label {
+.tri-div label {
     margin-right: 20px;
 }
 
-#tri-selection {
+.tri-div select {
     font-size: 20px;
     color: white;
     padding: 11px;
@@ -117,8 +117,8 @@
     padding: 11px;
     width: 170px;
     height: 70px;
-    border: none;
     background-color: #901C1C;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -157,7 +157,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px 0px 35px 35px;
+    padding: 35px;
     margin: 20px auto;
 }
 
@@ -196,8 +196,8 @@ form div {
 }
 
 form input {
-    width: 80%;
-    height: 50px;
+    width:100%;
+    height: 45px;
     border: none;
     border-radius: 5px;
 }

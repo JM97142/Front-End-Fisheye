@@ -84,6 +84,7 @@ function profilsFactory(data) {
 
         const contactButton = document.querySelector('.contact_button');
         contactButton.setAttribute("alt", "Contact me");
+        contactButton.setAttribute("tabindex", "2");
 
         const photographerImg = document.createElement( 'img' );
         photographerImg.setAttribute("src", picture);
