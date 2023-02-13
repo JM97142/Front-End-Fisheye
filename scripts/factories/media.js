@@ -6,6 +6,7 @@ function mediaFactory(media, tabMedias) {
     const imgFiles = `./assets/medias/${photographerId}/${image}`;
     
     let likesMedia = likes;
+    let likesTotal = 0;
     
     // Affiche les images des photographes
     function getImgCardDOM() {

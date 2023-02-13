@@ -1,6 +1,4 @@
 // DOM
-modal = document.getElementsByClassName('.modal');
-
 function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
@@ -37,6 +35,7 @@ messageInput.setAttribute("alt", "Your message");
 const contactBtn = document.querySelector(".contact_button");
 contactBtn.setAttribute("alt", "Send");
 
+const form = document.querySelector("#form");
 form.addEventListener("submit", sendMessage);
 
 function sendMessage(event) {

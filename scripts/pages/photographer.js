@@ -95,7 +95,7 @@ async function displayTri(tabMedias) {
                 if (new Date(a.date) > new Date(b.date)) {
                     return -1;
                 } 
-                else if (new Date(a.date) > new Date(b.date)) {
+                else if (new Date(a.date) < new Date(b.date)) {
                     return 1;
                 }
                 return 0;
