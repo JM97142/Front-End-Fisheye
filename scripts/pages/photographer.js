@@ -77,6 +77,7 @@ async function displayEncart(photographer, media) {
 async function displayTri(tabMedias) {
     const triSystem = document.querySelector("#tri-selection");
     triSystem.setAttribute("alt", "Order by");
+    triSystem.setAttribute("tabindex", "10");
 
     triSystem.addEventListener('change', function(event) {
         if (event.target.value === 'popularité') {

@@ -7,14 +7,29 @@ function mediaFactory(media, tabMedias) {
     
     let likesMedia = likes;
     let likesTotal = 0;
-    
+
+    //Ouverture de la lightbox avec le clavier
+    function openLightbox(event) {
+        if (event.defaultPrevented) {
+            return;
+        }
+
+        if (event.keyCode === 13) {
+            const mediaContent = document.querySelector(".media-content");
+            const lightBox = lightboxFactory(tabMedias, media);
+            const lightbox = lightBox.getLightbox();
+
+            mediaContent.appendChild(lightbox);
+        }
+    }
     // Affiche les images des photographes
     function getImgCardDOM() {
         const divMedia = document.createElement( 'article' );
+
         // Permet la création du caroussel de media
         const lienCarrousel = document.createElement( 'a' );
         lienCarrousel.setAttribute("alt", `${title}, closeup view`);
-        lienCarrousel.setAttribute("tabindex", "4");
+        lienCarrousel.setAttribute("tabindex", "12");
         lienCarrousel.addEventListener('click', function() {
             const mediaContent = document.querySelector(".media-content");
             const lightBox = lightboxFactory(tabMedias, media);
@@ -22,12 +37,12 @@ function mediaFactory(media, tabMedias) {
 
             mediaContent.appendChild(lightbox);
         });
+        lienCarrousel.addEventListener('keydown', openLightbox);
 
         const imgPhotographer = document.createElement( 'img' );
         imgPhotographer.setAttribute("src", imgFiles);
         imgPhotographer.classList = "img-media";
         
-
         const divInfos = document.createElement( 'div' );
         divInfos.className = "media-infos";
 
@@ -72,7 +87,7 @@ function mediaFactory(media, tabMedias) {
         // Permet la création du caroussel de media
         const lienCarrousel = document.createElement( 'a' );
         lienCarrousel.setAttribute("alt", `${title}, closeup view`);
-        lienCarrousel.setAttribute("tabindex", "4");
+        lienCarrousel.setAttribute("tabindex", "12");
         lienCarrousel.addEventListener('click', function() {
             const mediaContent = document.querySelector(".media-content");
             const lightBox = lightboxFactory(tabMedias, media);
@@ -80,6 +95,7 @@ function mediaFactory(media, tabMedias) {
 
             mediaContent.appendChild(lightbox);
         });
+        lienCarrousel.addEventListener('keydown', openLightbox);
 
         const videoPhotographer = document.createElement( 'video' );
         videoPhotographer.setAttribute("src", videoFiles);

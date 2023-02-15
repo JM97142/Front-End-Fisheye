@@ -20,17 +20,24 @@ window.addEventListener('keydown', function(event) {
 });
 
 // Formulaire de contact
+const modal = document.querySelector(".modal");
+modal.setAttribute("aria-labelledby", "2");
+
 const firstNameInput = document.querySelector("#firstname");
 firstNameInput.setAttribute("alt", "First name");
+firstNameInput.setAttribute("aria-labelledby", "3");
 
 const lastNameInput = document.querySelector("#lastname");
 lastNameInput.setAttribute("alt", "Last name");
+lastNameInput.setAttribute("aria-labelledby", "5");
 
 const emailInput = document.querySelector("#email");
 emailInput.setAttribute("alt", "Email");
+emailInput.setAttribute("aria-labelledby", "7");
 
 const messageInput = document.querySelector("#message");
 messageInput.setAttribute("alt", "Your message");
+messageInput.setAttribute("aria-labelledby", "9");
 
 const contactBtn = document.querySelector(".contact_button");
 contactBtn.setAttribute("alt", "Send");

@@ -1,6 +1,12 @@
-# Base de code du projet P6 - Parcours Front-end
+# Fisheye
+> Projet 6 - Créez un site accessible pour une plateforme de photographes
 
-## Démarrer le projet
+# Auteur
+Jean-Michel TARET
 
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
+## Ressources fournies
+https://www.figma.com/file/Q3yNeD7WTK9QHDldg9vaRl/UI-Design-FishEye-FR
+https://github.com/OpenClassrooms-Student-Center/Front-End-Fisheye
 
+## Lancer
+live-server `index.html`
